@@ -19,6 +19,7 @@ function onReady() {
     $('#submit-btn').on('click', getNumbers);
     $('#clear-btn').on('click', clearNumbers);
     $('#clr-history-btn').on('click', clearHistory);
+    $('.history-display').on('click', '.repeat-entry', handleRepeatEntry);
     renderNumbers();
     // Event handlers for numbers
     $('#0-btn').on('click', handleBtn0);
@@ -51,7 +52,7 @@ function getNumbers() {
                 plusBtn: plusButtonValue,
                 subBtn: subButtonValue,
                 multiplyBtn: multiplyButtonValue,
-                divideBtn: divideButtonValue
+                divideBtn: divideButtonValue,
             }
             // Use ajax POST request
             // Sends object data to server to modifify it, and GET request it when needed.
@@ -87,11 +88,17 @@ function renderNumbers() {
         `);
         }
         for (let equation of numberHistory) {
-            $(`#equation-history`).append(`<p>${equation} </p>`);
+            $(`#equation-history`).append(`<p class="repeat-entry">${equation} </p>`);
         }
     }).catch(function(error) {
         console.log('error', error);
     });
+}
+
+// User clicks on history and repeats a previous entry
+function handleRepeatEntry() {
+    let selectedEntry = $(this).text();
+    $('#number-input').val(selectedEntry);
 }
 
 function clearNumbers() {

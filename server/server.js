@@ -27,6 +27,7 @@ app.post('/numbers', (req, res) => {
         answers.push(quotient);
     }
     console.log('answers:', answers);
+    console.log('history', req.body.history);
     res.sendStatus(201);
 });
 

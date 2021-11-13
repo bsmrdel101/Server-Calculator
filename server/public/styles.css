@@ -9,7 +9,7 @@ header {
     color: white;
     border: 3px solid #142d4c;
     padding: 8px 0 8px 0;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .container {
@@ -86,4 +86,12 @@ input {
 .history-display {
     display: flex;
     justify-content: center;
+}
+
+.subtitle {
+    text-align: center;
+    background-color: #142d4c;
+    border: 3px solid #9fd3c7;
+    color: white;
+    padding: 10px;
 }
