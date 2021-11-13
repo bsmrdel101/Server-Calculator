@@ -1,19 +1,15 @@
 $(document).ready(onReady);
 
 let plusButtonValue = 0;
-// let subButtonValue = 0;
-// let multiplyButtonValue = 0;
-// let divideButtonValue = 0;
+let subButtonValue = 0;
+let multiplyButtonValue = 0;
+let divideButtonValue = 0;
 
 function onReady() {
-    $('#plus-btn').on('click', () => {
-        // Check if field is empty
-
-        // plus 1 to button score
-        plusButtonValue = 1;
-        // Set all other button scores to 0
-        // !plusButtonValue = 0;
-    });
+    $('#plus-btn').on('click', handlePlusButton);
+    $('#sub-btn').on('click', handleSubButton);
+    $('#multiply-btn').on('click', handleMultiplyButton);
+    $('#divide-btn').on('click', handleDivideButton);
     $('#submit-btn').on('click', getNumbers);
     renderNumbers();
 }
@@ -72,3 +68,34 @@ function renderNumbers() {
 }
 
 
+// Button handler functions
+
+function handlePlusButton() {
+    // plus 1 to button score
+    plusButtonValue = 1;
+    // Set all other button scores to 0
+    subButtonValue = 0;
+    multiplyButtonValue = 0;
+    divideButtonValue = 0;
+}
+
+function handleSubButton() {
+    plusButtonValue = 0;
+    subButtonValue = 1;
+    multiplyButtonValue = 0;
+    divideButtonValue = 0;
+}
+
+function handleMultiplyButton() {
+    plusButtonValue = 0;
+    subButtonValue = 0;
+    multiplyButtonValue = 1;
+    divideButtonValue = 0;
+}
+
+function handleDivideButton() {
+    plusButtonValue = 0;
+    subButtonValue = 0;
+    multiplyButtonValue = 0;
+    divideButtonValue = 1;
+}
