@@ -30,6 +30,12 @@ app.post('/numbers', (req, res) => {
     res.sendStatus(201);
 });
 
+// Clear answers array
+app.post('/history', (req, res) => {
+    answers = [];
+    res.sendStatus(201);
+});
+
 // Retrieve answers and bring them back to client side.
 app.get('/numbers', (req, res) => {
     res.send(answers);

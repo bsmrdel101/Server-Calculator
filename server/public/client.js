@@ -18,6 +18,7 @@ function onReady() {
     $('#divide-btn').on('click', handleDivideButton);
     $('#submit-btn').on('click', getNumbers);
     $('#clear-btn').on('click', clearNumbers);
+    $('#clr-history').on('click', '#clr-history-btn', clearHistory);
     renderNumbers();
     // Event handlers for numbers
     $('#0-btn').on('click', handleBtn0);
@@ -63,6 +64,9 @@ function getNumbers() {
             }).catch(function(error) {
                 console.log('error', error);
             });
+            // Add clear history button
+            $('#clr-history').empty();
+            $('#clr-history').append(`<button id="clr-history-btn">Clear History</button>`);
             // Clear inputs fields
             clearNumbers();
         }
@@ -98,8 +102,22 @@ function clearNumbers() {
     buttonValue = 0;
 }
 
+function clearHistory() {
+    $('#history').empty();
+    // Empty answers array
+    $.ajax({
+        type: 'POST',
+        url: '/history',
+        data: buttonValue
+    }).then(function(response) {
+        $('#answer').text('0');
+    }).catch(function(error) {
+        console.log('error', error);
+    });
+}
 
-// Button handler functions:
+
+/* Button handler functions: */
 
 function handlePlusButton() {
     // plus 1 to button score
