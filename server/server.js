@@ -16,6 +16,15 @@ app.post('/numbers', (req, res) => {
     if (req.body.plusBtn === '1') {
         let sum = number1 + number2;
         answers.push(sum);
+    } else if (req.body.subBtn === '1') {
+        let diff = number1 - number2;
+        answers.push(diff);
+    } else if (req.body.multiplyBtn === '1') {
+        let product = number1 * number2;
+        answers.push(product);
+    } else {
+        let quotient = number1 / number2;
+        answers.push(quotient);
     }
     console.log('answers:', answers);
     res.sendStatus(201);

@@ -20,7 +20,7 @@ function getNumbers() {
         alert('Fill empty fields!');
     } else {
         // Check if any button is selected
-        if (plusButtonValue === 0 ) {
+        if (plusButtonValue === 0 && subButtonValue === 0 && multiplyButtonValue === 0 && divideButtonValue === 0) {
             alert('Please select a math opperation!');
         } else {
             // Store values of input fields
@@ -28,6 +28,9 @@ function getNumbers() {
                 number1: $('#number-1').val(),
                 number2: $('#number-2').val(),
                 plusBtn: plusButtonValue,
+                subBtn: subButtonValue,
+                multiplyBtn: multiplyButtonValue,
+                divideBtn: divideButtonValue
             }
             // Use ajax POST request
             // Sends object data to server to modifify it, and GET request it when needed.
@@ -68,7 +71,7 @@ function renderNumbers() {
 }
 
 
-// Button handler functions
+// Button handler functions:
 
 function handlePlusButton() {
     // plus 1 to button score
