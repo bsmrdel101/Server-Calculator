@@ -53,6 +53,8 @@ input {
     color: white;
 }
 
+.keypad button:hover {background-color: #1b3c64;}
+
 .number-display {
     display: flex;
     justify-content: center;
@@ -71,10 +73,17 @@ input {
     color: white;
 }
 
+#clear-btn:hover {background-color: #1b3c64;}
+
 #clr-history-btn {
-    padding: 6px;`
+    padding: 6px;
     background-color: #9fd3c7;
     color: #142d4c;
     border: 2px solid #142d4c;
     border-radius: 10px;
+}
+
+.history-display {
+    display: flex;
+    justify-content: center;
 }

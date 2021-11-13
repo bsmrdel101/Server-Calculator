@@ -5,7 +5,7 @@ let subButtonValue = 0;
 let multiplyButtonValue = 0;
 let divideButtonValue = 0;
 let buttonValue = 0;
-let numberHistory;
+let numberHistory = [];
 // First half of equation
 let number1;
 // Save the amount of spaces that number1 and symbol take up
@@ -78,12 +78,16 @@ function renderNumbers() {
         // Append .length - 1
         $('#answer').text(response[response.length - 1]);
         // Clear the history
-        $('#history').empty();
+        $('#history p').empty();
+        $(`#equation-history`).empty();
         // Loop through answers
         for (let answer of response) {
         $('#history').append(`
-        <li>${numberHistory} = ${answer}</li>
+        <p> = ${answer}</p>
         `);
+        }
+        for (let equation of numberHistory) {
+            $(`#equation-history`).append(`<p>${equation} </p>`);
         }
     }).catch(function(error) {
         console.log('error', error);
@@ -92,7 +96,7 @@ function renderNumbers() {
 
 function clearNumbers() {
     // Get previous equation for history
-    numberHistory = $('#number-input').val();
+    numberHistory.push($('#number-input').val());
     // Clear inputs
     $('#number-input').val('');
     // Set buttonValue to 0
@@ -101,6 +105,8 @@ function clearNumbers() {
 
 function clearHistory() {
     $('#history').empty();
+    $('#equation-history').empty();
+    numberHistory = [];
     // Empty answers array
     $.ajax({
         type: 'POST',
