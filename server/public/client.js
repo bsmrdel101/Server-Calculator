@@ -88,7 +88,7 @@ function renderNumbers() {
         `);
         }
         for (let equation of numberHistory) {
-            $(`#equation-history`).append(`<p class="repeat-entry">${equation} </p>`);
+            $(`#equation-history`).append(`<p class="repeat-entry">${equation}</p>`);
         }
     }).catch(function(error) {
         console.log('error', error);
@@ -99,6 +99,8 @@ function renderNumbers() {
 function handleRepeatEntry() {
     let selectedEntry = $(this).text();
     $('#number-input').val(selectedEntry);
+    // Makes sure you can't type another math symbol
+    buttonValue = 1;
 }
 
 function clearNumbers() {

@@ -95,3 +95,13 @@ input {
     color: white;
     padding: 10px;
 }
+
+#answer {
+    margin: 10px 35% 10px 35%;
+    background-color: #142d4c;
+}
+
+#equation-history {
+    color: #9fd3c7;
+    margin-right: 4px;
+}
