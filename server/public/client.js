@@ -37,7 +37,6 @@ function getNumbers() {
             url: '/numbers',
             data: inputs
         }).then(function(response) {
-            console.log('POST worked!');
             renderNumbers();
         }).catch(function(error) {
             console.log('error', error);
@@ -50,11 +49,11 @@ function renderNumbers() {
         type: 'GET',
         url: '/numbers'
     }).then(function(response) {
-        console.log('GET worked!');
-
         // Append .length - 1
         $('#answer').text(response[response.length - 1]);
-        // Loop through answers and stop at answers.length - 2
+        // Clear the history
+        $('#history').empty();
+        // Loop through answers
         for (let answer of response) {
         $('#history').append(`
         <li>${answer}</li>
