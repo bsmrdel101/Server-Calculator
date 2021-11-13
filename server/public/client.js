@@ -20,6 +20,7 @@ function onReady() {
     $('#clear-btn').on('click', clearNumbers);
     renderNumbers();
     // Event handlers for numbers
+    $('#0-btn').on('click', handleBtn0);
     $('#1-btn').on('click', handleBtn1);
     $('#2-btn').on('click', handleBtn2);
     $('#3-btn').on('click', handleBtn3);
@@ -150,6 +151,9 @@ function handleDivideButton() {
         deleteAmount = $('#number-input').val().length
     }
     buttonValue = 1;
+}
+function handleBtn0() {
+    $('#number-input').val(`${$('#number-input').val()}0`);
 }
 function handleBtn1() {
     $('#number-input').val(`${$('#number-input').val()}1`);
