@@ -18,7 +18,7 @@ function onReady() {
     $('#divide-btn').on('click', handleDivideButton);
     $('#submit-btn').on('click', getNumbers);
     $('#clear-btn').on('click', clearNumbers);
-    $('#clr-history').on('click', '#clr-history-btn', clearHistory);
+    $('#clr-history-btn').on('click', clearHistory);
     renderNumbers();
     // Event handlers for numbers
     $('#0-btn').on('click', handleBtn0);
@@ -64,9 +64,6 @@ function getNumbers() {
             }).catch(function(error) {
                 console.log('error', error);
             });
-            // Add clear history button
-            $('#clr-history').empty();
-            $('#clr-history').append(`<button id="clr-history-btn">Clear History</button>`);
             // Clear inputs fields
             clearNumbers();
         }
