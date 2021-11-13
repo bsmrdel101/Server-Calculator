@@ -51,12 +51,15 @@ function renderNumbers() {
         url: '/numbers'
     }).then(function(response) {
         console.log('GET worked!');
-        // If length is 0 then appened answers[0], otherwise appened answers[answers.length - 1]
-        $('#answer').append(response[0]);
+
+        // Append .length - 1
+        $('#answer').text(response[response.length - 1]);
         // Loop through answers and stop at answers.length - 2
-        // $('#history').append(`
-        // <li>${}</li>
-        // `);
+        for (let answer of response) {
+        $('#history').append(`
+        <li>${answer}</li>
+        `);
+        }
     }).catch(function(error) {
         console.log('error', error);
     });
