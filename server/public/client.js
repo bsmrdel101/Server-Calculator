@@ -11,6 +11,7 @@ function onReady() {
     $('#multiply-btn').on('click', handleMultiplyButton);
     $('#divide-btn').on('click', handleDivideButton);
     $('#submit-btn').on('click', getNumbers);
+    $('#clear-btn').on('click', clearNumbers);
     renderNumbers();
 }
 
@@ -70,6 +71,10 @@ function renderNumbers() {
     });
 }
 
+function clearNumbers() {
+    $('#number-1').val('');
+    $('#number-2').val('');
+}
 
 // Button handler functions:
 
