@@ -1,0 +1,19 @@
+header {
+    text-align: center;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    height: 6vh;
+}
+
+.row-1 {
+    margin-top: 1rem;
+}
+
+.row-1, .row-2, .row-3, .row-4 {
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+}
