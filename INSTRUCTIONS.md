@@ -18,6 +18,13 @@ Keep a historical record of all math operations and solutions on the server. Dis
 
 > NOTE: History should exist even after refreshing the page. It's expected that the history will go away after restarting the server. We'll talk about long term data storage next week.
 
+### Checklist
+
+- Build both text inputs, addition button, and equals button.
+- Set up POST request to pass input values to the server.
+- inside app.post, do the math.
+- set up GET request to display values to DOM.
+
 ---
 ![base mode interface](images/baseMode.png)
 ---
