@@ -6,8 +6,14 @@ let plusButtonValue = 0;
 // let divideButtonValue = 0;
 
 function onReady() {
-    $('#plus-btn').on('click', plusButton);
-    // Post numbers
+    $('#plus-btn').on('click', () => {
+        // Check if field is empty
+
+        // plus 1 to button score
+        plusButtonValue = 1;
+        // Set all other button scores to 0
+        // !plusButtonValue = 0;
+    });
     $('#submit-btn').on('click', getNumbers);
 }
 
@@ -32,19 +38,28 @@ function getNumbers() {
             data: inputs
         }).then(function(response) {
             console.log('POST worked!');
+            renderNumbers();
         }).catch(function(error) {
             console.log('error', error);
         });
     }
 }
 
-function plusButton() {
-    // Check if field is empty
-
-    // plus 1 to button score
-    plusButtonValue = 1;
-    console.log('button value', plusButtonValue);
-    // Set all other button scores to 0
-    // !plusButtonValue = 0;
+function renderNumbers() {
+    $.ajax({
+        type: 'GET',
+        url: '/numbers'
+    }).then(function(response) {
+        console.log('GET worked!');
+        // If length is 0 then appened answers[0], otherwise appened answers[answers.length - 1]
+        $('#answer').append(response[0]);
+        // Loop through answers and stop at answers.length - 2
+        // $('#history').append(`
+        // <li>${}</li>
+        // `);
+    }).catch(function(error) {
+        console.log('error', error);
+    });
 }
+
 
