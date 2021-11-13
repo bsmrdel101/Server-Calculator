@@ -5,8 +5,10 @@ let subButtonValue = 0;
 let multiplyButtonValue = 0;
 let divideButtonValue = 0;
 let buttonValue = 0;
+let numberHistory;
 // First half of equation
 let number1;
+// Save the amount of spaces that number1 and symbol take up
 let deleteAmount;
 
 function onReady() {
@@ -17,6 +19,17 @@ function onReady() {
     $('#submit-btn').on('click', getNumbers);
     $('#clear-btn').on('click', clearNumbers);
     renderNumbers();
+    // Event handlers for numbers
+    $('#1-btn').on('click', handleBtn1);
+    $('#2-btn').on('click', handleBtn2);
+    $('#3-btn').on('click', handleBtn3);
+    $('#4-btn').on('click', handleBtn4);
+    $('#5-btn').on('click', handleBtn5);
+    $('#6-btn').on('click', handleBtn6);
+    $('#7-btn').on('click', handleBtn7);
+    $('#8-btn').on('click', handleBtn8);
+    $('#9-btn').on('click', handleBtn9);
+    $('#dot-btn').on('click', handleBtnDot);
 }
 
 function getNumbers() {
@@ -67,7 +80,7 @@ function renderNumbers() {
         // Loop through answers
         for (let answer of response) {
         $('#history').append(`
-        <li>${answer}</li>
+        <li>${numberHistory} = ${answer}</li>
         `);
         }
     }).catch(function(error) {
@@ -76,9 +89,14 @@ function renderNumbers() {
 }
 
 function clearNumbers() {
+    // Get previous equation for history
+    numberHistory = $('#number-input').val();
+    // Clear inputs
     $('#number-input').val('');
+    // Set buttonValue to 0
     buttonValue = 0;
 }
+
 
 // Button handler functions:
 
@@ -97,7 +115,6 @@ function handlePlusButton() {
     }
     buttonValue = 1;
 }
-
 function handleSubButton() {
     plusButtonValue = 0;
     subButtonValue = 1;
@@ -110,7 +127,6 @@ function handleSubButton() {
     }
     buttonValue = 1;
 }
-
 function handleMultiplyButton() {
     plusButtonValue = 0;
     subButtonValue = 0;
@@ -123,7 +139,6 @@ function handleMultiplyButton() {
     }
     buttonValue = 1;
 }
-
 function handleDivideButton() {
     plusButtonValue = 0;
     subButtonValue = 0;
@@ -135,4 +150,34 @@ function handleDivideButton() {
         deleteAmount = $('#number-input').val().length
     }
     buttonValue = 1;
+}
+function handleBtn1() {
+    $('#number-input').val(`${$('#number-input').val()}1`);
+}
+function handleBtn2() {
+    $('#number-input').val(`${$('#number-input').val()}2`);
+}
+function handleBtn3() {
+    $('#number-input').val(`${$('#number-input').val()}3`);
+}
+function handleBtn4() {
+    $('#number-input').val(`${$('#number-input').val()}4`);
+}
+function handleBtn5() {
+    $('#number-input').val(`${$('#number-input').val()}5`);
+}
+function handleBtn6() {
+    $('#number-input').val(`${$('#number-input').val()}6`);
+}
+function handleBtn7() {
+    $('#number-input').val(`${$('#number-input').val()}7`);
+}
+function handleBtn8() {
+    $('#number-input').val(`${$('#number-input').val()}8`);
+}
+function handleBtn9() {
+    $('#number-input').val(`${$('#number-input').val()}9`);
+}
+function handleBtnDot() {
+    $('#number-input').val(`${$('#number-input').val()}.`);
 }
