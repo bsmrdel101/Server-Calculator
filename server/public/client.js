@@ -15,6 +15,7 @@ function onReady() {
         // !plusButtonValue = 0;
     });
     $('#submit-btn').on('click', getNumbers);
+    renderNumbers();
 }
 
 function getNumbers() {
