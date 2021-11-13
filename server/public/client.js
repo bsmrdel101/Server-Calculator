@@ -5,6 +5,9 @@ let subButtonValue = 0;
 let multiplyButtonValue = 0;
 let divideButtonValue = 0;
 let buttonValue = 0;
+// First half of equation
+let number1;
+let deleteAmount;
 
 function onReady() {
     $('#plus-btn').on('click', handlePlusButton);
@@ -25,9 +28,11 @@ function getNumbers() {
         if (plusButtonValue === 0 && subButtonValue === 0 && multiplyButtonValue === 0 && divideButtonValue === 0) {
             alert('Please select a math opperation!');
         } else {
+            let number2 = $('#number-input').val().slice(deleteAmount);
             // Store values of input fields
             let inputs = {
-                number1: $('#number-input').val(),
+                number1: number1,
+                number2: number2,
                 plusBtn: plusButtonValue,
                 subBtn: subButtonValue,
                 multiplyBtn: multiplyButtonValue,
@@ -45,7 +50,7 @@ function getNumbers() {
                 console.log('error', error);
             });
             // Clear inputs fields
-            $('#number-input').val('');
+            clearNumbers();
         }
     }
 }
@@ -86,9 +91,11 @@ function handlePlusButton() {
     divideButtonValue = 0;
     // Add symbol into text input
     if (buttonValue === 0) {
-        $('#number-input').val(`${$('#number-input').val()} + `);   
+        number1 = $('#number-input').val();
+        $('#number-input').val(`${$('#number-input').val()} + `);
+        deleteAmount = $('#number-input').val().length
     }
-    buttonValue += 1;
+    buttonValue = 1;
 }
 
 function handleSubButton() {
@@ -97,9 +104,11 @@ function handleSubButton() {
     multiplyButtonValue = 0;
     divideButtonValue = 0;
     if (buttonValue === 0) {
+        number1 = $('#number-input').val();
         $('#number-input').val(`${$('#number-input').val()} - `);   
+        deleteAmount = $('#number-input').val().length
     }
-    buttonValue += 1;
+    buttonValue = 1;
 }
 
 function handleMultiplyButton() {
@@ -108,9 +117,11 @@ function handleMultiplyButton() {
     multiplyButtonValue = 1;
     divideButtonValue = 0;
     if (buttonValue === 0) {
-        $('#number-input').val(`${$('#number-input').val()} * `);   
+        number1 = $('#number-input').val();
+        $('#number-input').val(`${$('#number-input').val()} * `);
+        deleteAmount = $('#number-input').val().length   
     }
-    buttonValue += 1;
+    buttonValue = 1;
 }
 
 function handleDivideButton() {
@@ -119,7 +130,9 @@ function handleDivideButton() {
     multiplyButtonValue = 0;
     divideButtonValue = 1;
     if (buttonValue === 0) {
-        $('#number-input').val(`${$('#number-input').val()} / `);   
+        number1 = $('#number-input').val();
+        $('#number-input').val(`${$('#number-input').val()} / `);
+        deleteAmount = $('#number-input').val().length
     }
-    buttonValue += 1;
+    buttonValue = 1;
 }
