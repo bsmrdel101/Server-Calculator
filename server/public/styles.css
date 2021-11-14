@@ -105,3 +105,5 @@ input {
     color: #9fd3c7;
     margin-right: 4px;
 }
+
+#clr-history-btn:hover {background-color: #83b9ad;}
