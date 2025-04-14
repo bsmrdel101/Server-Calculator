@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/bsmrdel101/Server-Calculator#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.20.0"
   }
 }
